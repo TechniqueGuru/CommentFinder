@@ -134,7 +134,7 @@ while True:
         for comment in comment_list:
             comment_body = comment.body.replace("*", "").replace("_", "").replace("#", "")
 
-            if all([term in comment_body.lower() for term in terms]):
+            if all(term in comment_body.lower() for term in terms):
                 print(f"\n____\nFound comment!\nComment url: https://reddit.com/{comment.permalink}\n\n{comment.body}\n____\n")
                 if web_open == "y":
                     webbrowser.open(f"https://reddit.com/{comment.permalink}", new=0)
@@ -148,7 +148,7 @@ while True:
                     continue
                 parent_comment_body = parent_comment.body.replace("*", "").replace("_", "").replace("#", "")
 
-                if all([term in parent_comment_body.lower() for term in terms]):
+                if all(term in parent_comment_body.lower() for term in terms):
                     print(f"\n____\nFound in parent comment!\nComment url: https://reddit.com/{parent_comment.permalink}\n\n{parent_comment.body}\n____\n")
                     if web_open == "y":
                         webbrowser.open(f"https://reddit.com/{parent_comment.permalink}", new=0)
